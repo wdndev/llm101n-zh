@@ -2,7 +2,7 @@
 
 ## 1.介绍
 
-`MicroGrad`是Andrej Karpathy写的一个非常轻量级别的神经网络框架，其基本构成为一个90行python代码的标量反向传播（自动微分）引擎，以及在此基础上实现的神经网络层，代码见[仓库]([karpathy/micrograd：一个小型标量值 autograd 引擎和其上的神经网络库，具有类似 PyTorch 的 API --- karpathy/micrograd: A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API (github.com)](https://github.com/karpathy/micrograd))。
+`MicroGrad`是Andrej Karpathy写的一个非常轻量级别的神经网络框架，其基本构成为一个90行python代码的标量反向传播（自动微分）引擎，以及在此基础上实现的神经网络层，代码见[仓库]([karpathy/micrograd](https://github.com/karpathy/micrograd))。
 
 在这个章节中，我们构建了一个微小的“autograd”引擎（自动梯度的缩写），它实现了反向传播算法，这里构建的代码是神经网络训练的核心，它允许在计算应该如何更新神经网络的参数，以便使其在某些任务中做得更好，例如自回归语言模型中的下一个标记预测。所有现代深度学习库（例如 PyTorch、TensorFlow、JAX 等）都使用了这种完全相同的算法，不同之处在于这些库的优化程度更高且功能更丰富。
 
@@ -22,29 +22,29 @@ $$
 
 ### 2.1 链式法则
 
-在深度学习中，多元函数通常是****复合****（composite）的，链式法则可以被用来微分复合函数。
+在深度学习中，多元函数通常是复合（composite）的，链式法则可以被用来微分复合函数。
 
 先考虑单变量函数。假设函数$y=f(u)$和$u=g(x)$都是可微的，根据链式法则：
 
 $$
-    \**frac**{dy}{dx} = \**frac**{dy}{du} \**frac**{du}{dx}
+    \frac{dy}{dx} = \frac{dy}{du} \frac{du}{dx}
 $$
 
 现在考虑一个更一般的场景，即函数具有任意数量的变量的情况。
 
-假设可微分函数$y$有变量$u_1, u_2, \**ldots**, u_m$，其中每个可微分函数$u_i$都有变量$x_1, x_2, \**ldots**, x_n$。
+假设可微分函数$y$有变量$u_1, u_2, \ldots, u_m$，其中每个可微分函数$u_i$都有变量$x_1, x_2, \ldots, x_n$。
 
-注意，$y$是$x_1, x_2， \**ldots**, x_n$的函数。
+注意，$y$是$x_1, x_2， \ldots, x_n$的函数。
 
-对于任意$i = 1, 2, \**ldots**, n$，链式法则给出：
+对于任意$i = 1, 2, \ldots, n$，链式法则给出：
 
-$$\**frac**{\**partial** y}{\**partial** x_i} = \**frac**{\**partial** y}{\**partial** u_1} \**frac**{\**partial** u_1}{\**partial** x_i} + \**frac**{\**partial** y}{\**partial** u_2} \**frac**{\**partial** u_2}{\**partial** x_i} + \**cdots** + \**frac**{\**partial** y}{\**partial** u_m} \**frac**{\**partial** u_m}{\**partial** x_i}$$
+$$\frac{\partial y}{\partial x_i} = \frac{\partial y}{\partial u_1} \frac{\partial u_1}{\partial x_i} + \frac{\partial y}{\partial u_2} \frac{\partial u_2}{\partial x_i} + \cdots + \frac{\partial y}{\partial u_m} \frac{\partial u_m}{\partial x_i}$$
 
 ## 3.计算图
 
 求导是几乎所有深度学习优化算法的关键步骤。虽然求导的计算很简单，只需要一些基本的微积分。但对于复杂的模型，手工进行更新是一件很痛苦的事情（而且经常容易出错）。
 
-深度学习框架通过自动计算导数，即****自动微分****（automatic differentiation）来加快求导。实际中，根据设计好的模型，系统会构建一个****计算图****（computational graph），来跟踪计算是哪些数据通过哪些操作组合起来产生输出。自动微分使系统能够随后反向传播梯度。这里，****反向传播****（backpropagate）意味着跟踪整个计算图，填充关于每个参数的偏导数。
+深度学习框架通过自动计算导数，即自动微分（automatic differentiation）来加快求导。实际中，根据设计好的模型，系统会构建一个**计算图**（computational graph），来跟踪计算是哪些数据通过哪些操作组合起来产生输出。自动微分使系统能够随后反向传播梯度。这里，**反向传播**（backpropagate）意味着跟踪整个计算图，填充关于每个参数的偏导数。
 
 计算图（Computation Graph）是一种用于表示数学计算或程序执行的图结构，它在深度学习和神经网络的实现中尤为重要。
 
