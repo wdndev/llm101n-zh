@@ -10,9 +10,7 @@
 
 在数学中，梯度是一个矢量函数，表示函数在某点的方向导数的最大值，对于函数的梯度计算公式如下：
 $$
-\
 \operatorname{grad} f=\left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right)=\frac{\partial f}{\partial x} \vec{i}+\frac{\partial f}{\partial y} \vec{j}+\frac{\partial f}{\partial z} \vec{k}
-\
 $$
 在深度学习中，梯度被用来描述神经网络中某一层的输出对输入的敏感程度，即权重更新的方向。简单来说，梯度指示了损失函数在参数空间中的变化方向，是优化算法调整模型参数的重要依据。
 
@@ -38,7 +36,9 @@ $$
 
 对于任意$i = 1, 2, \ldots, n$，链式法则给出：
 
-$$\frac{\partial y}{\partial x_i} = \frac{\partial y}{\partial u_1} \frac{\partial u_1}{\partial x_i} + \frac{\partial y}{\partial u_2} \frac{\partial u_2}{\partial x_i} + \cdots + \frac{\partial y}{\partial u_m} \frac{\partial u_m}{\partial x_i}$$
+$$
+\frac{\partial y}{\partial x_i} = \frac{\partial y}{\partial u_1} \frac{\partial u_1}{\partial x_i} + \frac{\partial y}{\partial u_2} \frac{\partial u_2}{\partial x_i} + \cdots + \frac{\partial y}{\partial u_m} \frac{\partial u_m}{\partial x_i}
+$$
 
 ## 3.计算图
 

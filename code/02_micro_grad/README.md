@@ -9,11 +9,11 @@
 ## 2.梯度
 
 在数学中，梯度是一个矢量函数，表示函数在某点的方向导数的最大值，对于函数的梯度计算公式如下：
+
 $$
-\
 \operatorname{grad} f=\left(\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}\right)=\frac{\partial f}{\partial x} \vec{i}+\frac{\partial f}{\partial y} \vec{j}+\frac{\partial f}{\partial z} \vec{k}
-\
 $$
+
 在深度学习中，梯度被用来描述神经网络中某一层的输出对输入的敏感程度，即权重更新的方向。简单来说，梯度指示了损失函数在参数空间中的变化方向，是优化算法调整模型参数的重要依据。
 
 在深度学习中，梯度更新主要通过反向传播来实现。反向传播是一种通过计算损失函数对神经网络中每一层的偏导数来更新权重的算法。它首先将输入信号向前传播，计算每一层的输出和预期结果的误差，然后反向传播这个误差来逐层调整权重。
