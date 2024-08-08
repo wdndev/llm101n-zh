@@ -386,5 +386,6 @@ step 99, train loss 0.00045093045604465413
 
 ## 5.参考资料
 
-1. [Deep Learning Toolbox]([Deep Learning Toolbox Documentation - MathWorks 中国](https://ww2.mathworks.cn/help/deeplearning/index.html))
-2. [karpathy/micrograd: A tiny scalar-valued autograd engine and a neural net library on top of it with PyTorch-like API](https://github.com/karpathy/micrograd)
+1. [Deep Learning Toolbox](https://ww2.mathworks.cn/help/deeplearning/index.html)
+2. [karpathy/micrograd](https://github.com/karpathy/micrograd)
+
