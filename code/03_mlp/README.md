@@ -822,6 +822,5 @@ test_loss 2.0579814016819
 
 ## 6. 参考资料
 
-[ 14.1. 词嵌入（word2vec） — 动手学深度学习 2.0.0 documentation  https://zh-v2.d2l.ai/chapter\_natural-language-processing-pretraining/word2vec.html](https://zh-v2.d2l.ai/chapter_natural-language-processing-pretraining/word2vec.html " 14.1. 词嵌入（word2vec） — 动手学深度学习 2.0.0 documentation  https://zh-v2.d2l.ai/chapter_natural-language-processing-pretraining/word2vec.html")
-
-[   https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf "   https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf")
+- [词嵌入（word2vec）](https://zh-v2.d2l.ai/chapter_natural-language-processing-pretraining/word2vec.html )
+- [A Neural Probabilistic Language Model](https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf )
